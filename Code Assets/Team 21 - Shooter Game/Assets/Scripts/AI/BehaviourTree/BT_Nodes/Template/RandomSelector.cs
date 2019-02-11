@@ -1,0 +1,22 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class RandomSelector : Composite {
+    protected override Status Update()
+    {
+        while (true)
+        {
+            List<Behaviour> behaviours = children;
+            currentChild = Random.Range(0, behaviours.Count);
+            currentStatus = behaviours[currentChild].Tick();
+            if (currentStatus != Status.FAIL) return currentStatus;
+            else
+            {
+                behaviours.RemoveAt(currentChild);
+                if (behaviours.Count == 0) return Status.FAIL;
+            }
+        }
+        return Status.ERROR;
+    }
+}
