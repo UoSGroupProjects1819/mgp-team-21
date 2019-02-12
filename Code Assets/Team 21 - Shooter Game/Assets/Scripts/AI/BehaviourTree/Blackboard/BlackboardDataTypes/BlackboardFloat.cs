@@ -2,15 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BlackboardFloat : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+public class BlackboardFloat : BlackboardBase {
+    public BlackboardFloat(float val) { value = val; }
+    public float GetValue() { return value; }
+    public void SetValue(float val) { value = val; }
+    private float value;
 }

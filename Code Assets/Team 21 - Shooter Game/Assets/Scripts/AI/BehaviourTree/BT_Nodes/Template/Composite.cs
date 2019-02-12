@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Composite : Behaviour {
-    protected List<Behaviour> children;
+    protected List<Behaviour> children = new List<Behaviour>();
     protected int currentChild = 0;
 
     public void AddChild(Behaviour child)

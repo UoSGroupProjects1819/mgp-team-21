@@ -11,7 +11,7 @@ public abstract class Behaviour : MonoBehaviour {
         RUNNING,
         ERROR
     };
-    protected virtual void onInit() { }
+    protected virtual void onInit() { currentStatus = Status.RUNNING; }
     protected abstract Status Update();
     protected virtual void onTerminate(Status status) { }
     protected Status currentStatus = Status.INVALID;
