@@ -2,16 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Blackboard : MonoBehaviour {
-
-    //KeyVal map
-    
-
-    //insert method(s)
-
-    //Get/Set val method(s)
-
-
+public class BlackboardInt : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

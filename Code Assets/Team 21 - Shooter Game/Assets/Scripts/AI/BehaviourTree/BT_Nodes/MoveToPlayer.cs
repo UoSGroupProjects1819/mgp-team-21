@@ -2,15 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveToPlayer : MonoBehaviour {
+public class MoveToPlayer : Behaviour {
 
-	// Use this for initialization
-	void Start () {
+	protected override Status Update () {
 		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+        return currentStatus;
 	}
 }
