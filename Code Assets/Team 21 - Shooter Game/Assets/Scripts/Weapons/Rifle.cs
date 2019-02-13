@@ -18,12 +18,7 @@ public class Rifle : BaseWeapon {
 
     }
 	
-	// Update is called once per frame
-	void Update () {
-        
-		
-	}
-
+	
     public override void Fire()
     {
         foreach (GameObject bullet in bullets)

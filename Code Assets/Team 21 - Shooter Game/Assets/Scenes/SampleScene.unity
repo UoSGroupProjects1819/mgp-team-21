@@ -265,6 +265,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &835418263
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 835418264}
+  m_Layer: 0
+  m_Name: GunSwitch
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &835418264
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 835418263}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1182077296
 Prefab:
   m_ObjectHideFlags: 0
@@ -320,6 +348,7 @@ GameObject:
   - component: {fileID: 1454975254}
   - component: {fileID: 1454975252}
   - component: {fileID: 1454975253}
+  - component: {fileID: 1454975255}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -455,5 +484,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84a739318e766444f89267434c8be1bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShotTimer: 5
+  ShotTimer: 2
   bullet: {fileID: 1852027387243046, guid: fef3a17be9147eb439fc2b616a253ad1, type: 2}
+--- !u!114 &1454975255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1454975248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3037f052c124c5a4a845671e37828a14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Ammo: 10

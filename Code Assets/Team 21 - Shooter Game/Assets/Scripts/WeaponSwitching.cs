@@ -13,7 +13,8 @@ public class WeaponSwitching : MonoBehaviour {
 
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
 		
 	}
 	
