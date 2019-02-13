@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MoveToTarget : Behaviour {
 
-	protected override Status Update () {
+	protected override Status TickBehaviour () {
         GameObject target = GetComponent<Blackboard>().GetGameObject("target");
         float targetDistance = GetComponent<Blackboard>().GetFloat("targetDistance");
         float weaponRange = 10; //arbitrary value until weapons are added

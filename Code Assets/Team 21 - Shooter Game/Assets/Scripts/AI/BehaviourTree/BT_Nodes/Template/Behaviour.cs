@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Behaviour : MonoBehaviour {
+public abstract class Behaviour {
     public enum Status
     {
         INVALID,
@@ -12,13 +12,13 @@ public abstract class Behaviour : MonoBehaviour {
         ERROR
     };
     protected virtual void onInit() { currentStatus = Status.RUNNING; }
-    protected abstract Status Update();
+    protected abstract Status TickBehaviour();
     protected virtual void onTerminate(Status status) { }
     protected Status currentStatus = Status.INVALID;
     public virtual Status Tick()
     {
         if (currentStatus == Status.INVALID) onInit();
-        currentStatus = Update();
+        currentStatus = TickBehaviour();
         if (currentStatus != Status.RUNNING) onTerminate(currentStatus);
         return currentStatus;
     }

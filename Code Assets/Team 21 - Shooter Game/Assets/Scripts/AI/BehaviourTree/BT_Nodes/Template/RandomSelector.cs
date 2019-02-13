@@ -3,20 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class RandomSelector : Composite {
-    protected override Status Update()
+    protected override Status TickBehaviour()
     {
-        while (true)
+        currentStatus = Update();
+        return currentStatus;
+    }
+
+    Status Update()
+    {
+        List<Behaviour> behaviours = children;
+        currentChild = Random.Range(0, behaviours.Count);
+        currentStatus = behaviours[currentChild].Tick();
+        if (currentStatus != Status.FAIL) return currentStatus;
+        else
         {
-            List<Behaviour> behaviours = children;
-            currentChild = Random.Range(0, behaviours.Count);
-            currentStatus = behaviours[currentChild].Tick();
-            if (currentStatus != Status.FAIL) return currentStatus;
-            else
-            {
-                behaviours.RemoveAt(currentChild);
-                if (behaviours.Count == 0) return Status.FAIL;
-            }
+            behaviours.RemoveAt(currentChild);
+            if (behaviours.Count == 0) return Status.FAIL;
         }
-        return Status.ERROR;
+        return currentStatus;
     }
 }

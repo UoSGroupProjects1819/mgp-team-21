@@ -3,17 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AIMovement : MonoBehaviour {
-    private Sequencer sequencer;
 
-	void Start () {
-        sequencer = gameObject.AddComponent<Sequencer>();
-        FindPlayer find = gameObject.AddComponent<FindPlayer>();
-        MoveToTarget move = gameObject.AddComponent<MoveToTarget>();
-        sequencer.AddChild(find);
-        sequencer.AddChild(move);
+    Behaviour BT;
+
+
+    void Start () {
+      BT   = InitTree();
 	}
 	
 	void FixedUpdate () {
-        sequencer.Tick();
+        BT.Tick();
 	}
+
+    Behaviour InitTree()
+    {
+        Sequencer root = new Sequencer();
+        FindPlayer find = new FindPlayer();
+        MoveToTarget move = new MoveToTarget();
+
+        root.AddChild(find);
+        root.AddChild(move);
+
+        return root;
+    }
 }

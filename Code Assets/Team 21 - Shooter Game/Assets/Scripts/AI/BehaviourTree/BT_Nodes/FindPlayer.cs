@@ -6,7 +6,7 @@ public class FindPlayer : Behaviour
 {
     public float SearchRange = 100; //Range at which the enemy will detect the player
 
-    protected override Status Update()
+    protected override Status TickBehaviour()
     {
         GameObject player = Blackboard.GetGlobalGameObject("Player");
         
