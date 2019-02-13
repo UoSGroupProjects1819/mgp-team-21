@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour {
     {
         Movement();
         LookAtMouse();
+        
     }
 
     void Movement()
