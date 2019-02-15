@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Composite : Behaviour {
+    protected Composite(GameObject go) : base(go) { }
     protected List<Behaviour> children = new List<Behaviour>();
     protected int currentChild = 0;
 

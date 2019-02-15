@@ -6,20 +6,20 @@ public class AIMovement : MonoBehaviour {
 
     Behaviour BT;
 
-
     void Start () {
-      BT   = InitTree();
+        GameObject go = gameObject;
+        BT   = InitTree(go);
 	}
 	
 	void FixedUpdate () {
         BT.Tick();
 	}
 
-    Behaviour InitTree()
+    Behaviour InitTree(GameObject go)
     {
-        Sequencer root = new Sequencer();
-        FindPlayer find = new FindPlayer();
-        MoveToTarget move = new MoveToTarget();
+        Sequencer root = new Sequencer(go);
+        FindPlayer find = new FindPlayer(go);
+        MoveToTarget move = new MoveToTarget(go);
 
         root.AddChild(find);
         root.AddChild(move);

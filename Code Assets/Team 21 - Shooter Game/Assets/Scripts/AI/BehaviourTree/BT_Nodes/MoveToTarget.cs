@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MoveToTarget : Behaviour {
-
+    public MoveToTarget(GameObject go) : base (go) { }
 	protected override Status TickBehaviour () {
-        GameObject target = GetComponent<Blackboard>().GetGameObject("target");
-        float targetDistance = GetComponent<Blackboard>().GetFloat("targetDistance");
+        GameObject target = gameObject.GetComponent<Blackboard>().GetGameObject("target");
+        float targetDistance = gameObject.GetComponent<Blackboard>().GetFloat("targetDistance");
         float weaponRange = 10; //arbitrary value until weapons are added
         while (targetDistance > weaponRange)
         {
-            float x = target.transform.position.x - transform.position.x;
-            float y = target.transform.position.y - transform.position.y;
+            float x = target.transform.position.x - gameObject.transform.position.x;
+            float y = target.transform.position.y - gameObject.transform.position.y;
 
-            transform.rotation = new Quaternion(0, 0, Mathf.Atan2(y, x) * Mathf.Rad2Deg, 1);
+            gameObject.transform.rotation = new Quaternion(0, 0, Mathf.Atan2(y, x) * Mathf.Rad2Deg, 1);
 
-            transform.position = new Vector3(x * Time.deltaTime, y * Time.deltaTime, 0);
+            gameObject.transform.position = new Vector3(x * Time.deltaTime, y * Time.deltaTime, 0);
         }
 
         return currentStatus;

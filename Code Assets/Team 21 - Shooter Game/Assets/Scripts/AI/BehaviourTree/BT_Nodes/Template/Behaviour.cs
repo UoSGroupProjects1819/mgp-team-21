@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Behaviour {
+    protected Behaviour(GameObject go)
+    {
+        gameObject = go;
+    }
     public enum Status
     {
         INVALID,
@@ -22,4 +26,5 @@ public abstract class Behaviour {
         if (currentStatus != Status.RUNNING) onTerminate(currentStatus);
         return currentStatus;
     }
+    protected GameObject gameObject;
 }

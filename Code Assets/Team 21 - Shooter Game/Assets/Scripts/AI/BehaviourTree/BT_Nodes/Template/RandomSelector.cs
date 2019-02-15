@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class RandomSelector : Composite {
+    public RandomSelector(GameObject go) : base(go) { }
     protected override Status TickBehaviour()
     {
         currentStatus = Update();

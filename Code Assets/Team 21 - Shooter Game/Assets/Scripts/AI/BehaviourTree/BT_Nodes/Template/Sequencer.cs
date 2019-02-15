@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Sequencer : Composite {
+    public Sequencer(GameObject go) : base(go) { }
     protected override Status TickBehaviour()
     {
         currentStatus = Update();
