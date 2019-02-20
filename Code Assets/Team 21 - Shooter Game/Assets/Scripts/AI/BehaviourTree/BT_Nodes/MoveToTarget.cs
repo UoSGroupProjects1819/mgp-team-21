@@ -15,7 +15,9 @@ public class MoveToTarget : Behaviour {
 
             gameObject.transform.rotation = new Quaternion(0, 0, Mathf.Atan2(y, x) * Mathf.Rad2Deg, 1);
 
-            gameObject.transform.position = new Vector3(x * Time.deltaTime, y * Time.deltaTime, 0);
+            gameObject.transform.position = new Vector3(gameObject.transform.position.x + x * Time.deltaTime, gameObject.transform.position.y + y * Time.deltaTime, 0);
+
+            targetDistance = Mathf.Sqrt(Mathf.Pow(x, 2) + Mathf.Pow(y, 2));
         }
 
         return currentStatus;
