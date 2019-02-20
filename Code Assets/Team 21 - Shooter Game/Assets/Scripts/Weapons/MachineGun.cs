@@ -8,35 +8,36 @@ public class MachineGun : BaseWeapon
 
 
     // Use this for initialization
-    void Start()
+    public override void SetupWeapon()
     {
         weaponType = "Machine Gun";
         minRange = 10f;
         maxRange = 15f;
-        ShotTimer = 0.1f;
-
-        WeaponSwitching.baseWeapons.Add(this);
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+        ShotTimer = 1f;
+        Ammo = 45;
 
 
     }
+
 
     public override void Fire()
     {
-        foreach (GameObject bullet in bullets)
-        {
-            if (!bullet.activeInHierarchy)
+        //for(int i = 0; i < 10; i++)
+        //{
+
+
+            foreach (GameObject bullet in bullets)
             {
-                bullet.SetActive(true);
-                bullet.transform.position = transform.position;
-                bullet.transform.rotation = transform.rotation;
-                break;
+                if (!bullet.activeInHierarchy)
+                {
+                    bullet.SetActive(true);
+                    bullet.transform.position = transform.position;
+                    bullet.transform.rotation = transform.rotation;
+                    break;
+                }
             }
-        }
+
+        
+        //}
     }
 }

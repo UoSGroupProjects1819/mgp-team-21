@@ -7,25 +7,19 @@ public class Shotgun : BaseWeapon
 
 
 
-    // Use this for initialization
-    void Start()
+    public override void SetupWeapon()
     {
         weaponType = "Shotgun";
         minRange = 5f;
         maxRange = 10f;
         ShotTimer = 5f;
+        Ammo = 8;
 
-        WeaponSwitching.baseWeapons.Add(this);
-
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+   
 
 
     }
+
 
     public override void Fire()
     {

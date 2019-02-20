@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class BaseWeapon : MonoBehaviour {
-
+    
     protected string weaponType;
     public float minRange;
     public float maxRange;
@@ -11,21 +11,24 @@ public abstract class BaseWeapon : MonoBehaviour {
 
     public float ShotTimer;
 
-    public GameObject bullet;
-    protected GameObject[] bullets = new GameObject[10];
+    protected GameObject[] bullets = new GameObject[100];
 
-    void Start()
+    public int Ammo = 10;
+
+
+    public virtual void CreateBullets(GameObject bullet)
     {
         for (int i = 0; i < bullets.Length; i++)
         {
             bullets[i] = Instantiate(bullet);
         }
-        foreach (GameObject bullet in bullets)
+        foreach (GameObject b in bullets)
         {
-            bullet.SetActive(false);
+            b.SetActive(false);
         }
     }
 
+    public abstract void SetupWeapon();
     public abstract void Fire();
 
 

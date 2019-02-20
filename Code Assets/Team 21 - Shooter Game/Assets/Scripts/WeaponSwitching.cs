@@ -4,34 +4,37 @@ using UnityEngine;
 
 public class WeaponSwitching : MonoBehaviour {
 
-    public float Ammo = 10f;
+    
     public static List <BaseWeapon> baseWeapons = new List<BaseWeapon>();
-    
 
-    
-
-
-
-	// Use this for initialization
-	void Start ()
+    void Start ()
     {
-		
+        
 	}
 	
-	// Update is called once per frame
-	void Update ()
-    {
-        NextWeapon();
-	}
 
-    void NextWeapon()
+    public BaseWeapon SwapWeapon()
     {
-        Ammo -= Time.deltaTime;
-
-        if(Ammo < 0f)
+        if(baseWeapons.Count == 0)
         {
-            var number = Random.Range(0, baseWeapons.Count);
-            
+            Shotgun shotgun = gameObject.AddComponent<Shotgun>();
+            shotgun.SetupWeapon();
+            baseWeapons.Add(shotgun);
+
+            Rifle rifle = gameObject.AddComponent<Rifle>();
+            rifle.SetupWeapon();
+            baseWeapons.Add(rifle);
+
+            Revolver revolver = gameObject.AddComponent<Revolver>();
+            revolver.SetupWeapon();
+            baseWeapons.Add(revolver);
+
+            MachineGun machineGun = gameObject.AddComponent<MachineGun>();
+            machineGun.SetupWeapon();
+            baseWeapons.Add(machineGun);
         }
+        int number = Random.Range(0, baseWeapons.Count);
+        Debug.Log(number);
+        return baseWeapons[number];
     }
 }

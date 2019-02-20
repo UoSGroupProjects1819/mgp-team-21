@@ -8,23 +8,17 @@ public class Revolver : BaseWeapon
 
 
     // Use this for initialization
-    void Start()
+    public override void SetupWeapon()
     {
         weaponType = "Revolver";
         minRange = 5f;
         maxRange = 10f;
         ShotTimer = 2.5f;
-
-        WeaponSwitching.baseWeapons.Add(this);
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+        Ammo = 6;
 
 
     }
+
 
     public override void Fire()
     {
