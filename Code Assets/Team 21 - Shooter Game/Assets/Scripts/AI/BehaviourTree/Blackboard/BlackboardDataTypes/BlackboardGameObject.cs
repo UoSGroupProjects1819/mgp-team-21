@@ -2,15 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BlackboardGameObject : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+public class BlackboardGameObject : BlackboardBase {
+    public BlackboardGameObject(GameObject val) { value = val; }
+    public GameObject GetValue() { return value; }
+    public void SetValue(GameObject val) { value = val; }
+    private GameObject value;
 }
