@@ -12,8 +12,7 @@ public class BulletController : MonoBehaviour {
     }
 
     void Update () {
-        float angle = transform.position.z;
-        transform.Translate(Mathf.Sin(angle) , Mathf.Cos(angle) , 0);
+        transform.Translate(0 , bulletSpeed, 0);
 
         time += Time.deltaTime;
         if (time >= 30f)
@@ -24,7 +23,6 @@ public class BulletController : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-
         if(!collision.gameObject.CompareTag("Player"))
         gameObject.SetActive(false);
     }

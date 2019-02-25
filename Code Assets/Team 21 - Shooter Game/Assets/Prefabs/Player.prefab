@@ -25,6 +25,8 @@ GameObject:
   - component: {fileID: 61053889068404064}
   - component: {fileID: 50688088471809478}
   - component: {fileID: 114369202563680764}
+  - component: {fileID: 114929717803405808}
+  - component: {fileID: 114963188731402750}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -154,9 +156,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84a739318e766444f89267434c8be1bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShotTimer: 0.1
+  ShotTimer: 5
   bullet: {fileID: 1852027387243046, guid: fef3a17be9147eb439fc2b616a253ad1, type: 2}
   Ammo: 100
+--- !u!114 &114929717803405808
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1229583913314810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 720cd21280d50cc49b865bc84ea90bcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114963188731402750
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1229583913314810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 031eec0eab1559743a76ace2f8af0bf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212433021337640064
 SpriteRenderer:
   m_ObjectHideFlags: 1

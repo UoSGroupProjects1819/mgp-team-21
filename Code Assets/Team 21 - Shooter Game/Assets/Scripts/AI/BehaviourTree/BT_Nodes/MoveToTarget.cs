@@ -11,10 +11,10 @@ public class MoveToTarget : Behaviour {
         float weaponRange = 10; //arbitrary value until weapons are added
         float x = target.transform.position.x - gameObject.transform.position.x;
         float y = target.transform.position.y - gameObject.transform.position.y;
-        while (targetDistance > weaponRange)
+        if/*while*/ (targetDistance > weaponRange)
         {
-            x = target.transform.position.x - gameObject.transform.position.x;
-            y = target.transform.position.y - gameObject.transform.position.y;
+            //x = target.transform.position.x - gameObject.transform.position.x;
+            //y = target.transform.position.y - gameObject.transform.position.y;
 
             Debug.Log(targetDistance);
 
