@@ -2,23 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rifle : BaseWeapon {
-
-
+public class Pistol : BaseWeapon {
 
     // Use this for initialization
     public override void SetupWeapon()
     {
-        weaponType = "Rifle";
-        minRange = 10f;
-        maxRange = 25f;
-        ShotTimer = 10f;
-        Ammo = 15;
+        weaponType = "Pistol";
+        minRange = 5f;
+        maxRange = 10f;
+        ShotTimer = 1f;
+        Ammo = 7;
+
+        damage = 5;
+
 
 
     }
-	
-	
+
+
     public override void Fire()
     {
         foreach (GameObject bullet in bullets)

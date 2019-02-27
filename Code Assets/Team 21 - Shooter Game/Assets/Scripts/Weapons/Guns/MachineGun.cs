@@ -16,6 +16,7 @@ public class MachineGun : BaseWeapon
         ShotTimer = 1f;
         Ammo = 45;
 
+        damage = 4;
 
     }
 

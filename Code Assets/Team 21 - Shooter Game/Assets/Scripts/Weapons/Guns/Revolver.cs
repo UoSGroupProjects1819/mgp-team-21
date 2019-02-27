@@ -2,21 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shotgun : BaseWeapon
+public class Revolver : BaseWeapon
 {
 
 
 
+    // Use this for initialization
     public override void SetupWeapon()
     {
-        weaponType = "Shotgun";
+        weaponType = "Revolver";
         minRange = 5f;
         maxRange = 10f;
-        ShotTimer = 5f;
-        Ammo = 8;
+        ShotTimer = 2.5f;
+        Ammo = 6;
 
-   
-
+        damage = 5;
 
     }
 
