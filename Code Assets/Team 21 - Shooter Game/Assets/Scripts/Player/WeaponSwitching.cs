@@ -2,20 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponSwitching : MonoBehaviour {
+public class WeaponSwitching : MonoBehaviour
+{
 
-    
-    public static List <BaseWeapon> baseWeapons = new List<BaseWeapon>();
 
-    void Start ()
+    public static List<BaseWeapon> baseWeapons = new List<BaseWeapon>();
+
+    void Start()
     {
-        
-	}
-	
+
+    }
+
 
     public BaseWeapon SwapWeapon()
     {
-        if(baseWeapons.Count == 0)
+        if (baseWeapons.Count == 0)
         {
             Shotgun shotgun = gameObject.AddComponent<Shotgun>();
             shotgun.SetupWeapon();

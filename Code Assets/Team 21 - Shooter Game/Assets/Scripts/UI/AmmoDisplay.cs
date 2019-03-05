@@ -20,6 +20,6 @@ public class AmmoDisplay : MonoBehaviour {
 
     private void OnGUI()
     {
-        GUI.Label(new Rect(-100, 30, 200, 50)), "Ammo: "+);
+        GUI.Label(new Rect(-100, 30, 200, 50), "Ammo: ");
     }
 }

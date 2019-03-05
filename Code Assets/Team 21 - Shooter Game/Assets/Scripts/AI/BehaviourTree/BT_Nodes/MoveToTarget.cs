@@ -18,7 +18,7 @@ public class MoveToTarget : Behaviour {
 
             //Debug.Log(targetDistance);
 
-            gameObject.transform.rotation = new Quaternion(0, 0, Mathf.Atan2(y, x) * Mathf.Rad2Deg, 1);
+            //gameObject.transform.rotation = new Quaternion(0, 0, Mathf.Atan2(y, x) * Mathf.Rad2Deg, 1);
 
             float X = x / targetDistance;
             float Y = y / targetDistance;
