@@ -25,7 +25,7 @@ public class CameraController : MonoBehaviour {
         distanceY = Player.transform.position.y - transform.position.y;
 
         float distance = Mathf.Sqrt(Mathf.Pow(distanceX, 2) + Mathf.Pow(distanceY, 2));
-        Debug.Log(distanceX + ", " + distanceY + ", " + distance);
+        //Debug.Log(distanceX + ", " + distanceY + ", " + distance);
 
         if (distance > followDistance)
         {

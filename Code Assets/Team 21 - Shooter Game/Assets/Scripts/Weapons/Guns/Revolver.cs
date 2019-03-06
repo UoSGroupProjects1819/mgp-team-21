@@ -28,8 +28,9 @@ public class Revolver : BaseWeapon
             if (!bullet.activeInHierarchy)
             {
                 bullet.SetActive(true);
+                bullet.GetComponent<BulletController>().damage = damage;
                 bullet.transform.position = transform.position;
-                bullet.transform.rotation = transform.rotation;
+                //bullet.transform.rotation = transform.rotation;
                 break;
             }
         }

@@ -101,5 +101,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
-  followDistance: 10
+  followDistance: 1
   cameraSpeed: 5
