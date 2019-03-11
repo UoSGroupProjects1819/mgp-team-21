@@ -11,12 +11,12 @@ public abstract class BaseWeapon : MonoBehaviour {
 
     public float ShotTimer;
 
-    protected GameObject[] bullets = new GameObject[100];
+    protected static GameObject[] bullets = new GameObject[100];
 
     public int Ammo = 10;
 
 
-    public virtual void CreateBullets(GameObject bullet)
+    public static void CreateBullets(GameObject bullet)
     {
         for (int i = 0; i < bullets.Length; i++)
         {
@@ -29,8 +29,20 @@ public abstract class BaseWeapon : MonoBehaviour {
     }
 
     public abstract void SetupWeapon();
-    public abstract void Fire();
+    public virtual void Fire()
+    {
+        foreach (GameObject bullet in bullets)
+        {
+            if (!bullet.activeInHierarchy)
+            {
+                bullet.transform.position = transform.position;
+                bullet.SetActive(true);
+                bullet.GetComponent<BulletController>().damage = damage;
+                break;
+            }
+        }
+    }
 
 
-    
+
 }

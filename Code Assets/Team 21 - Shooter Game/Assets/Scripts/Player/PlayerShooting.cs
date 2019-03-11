@@ -12,7 +12,7 @@ public class PlayerShooting : MonoBehaviour {
 
     void Start() {
         weapon = GetComponent<WeaponSwitching>().SwapWeapon();
-        weapon.CreateBullets(bullet);
+        BaseWeapon.CreateBullets(bullet);
         ShotTimer = weapon.ShotTimer;
         Ammo = weapon.Ammo;
 
@@ -29,6 +29,9 @@ public class PlayerShooting : MonoBehaviour {
 	//Creates bullets, Decrease ammo when shot
 	void Update () {
         timeSinceShot += Time.deltaTime;
+
+        ShotTimer = 1;
+
         if ((timeSinceShot >= ShotTimer) && (Ammo > 0))
         {
             weapon.Fire();

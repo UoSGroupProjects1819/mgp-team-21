@@ -18,20 +18,4 @@ public class Pistol : BaseWeapon {
 
 
     }
-
-
-    public override void Fire()
-    {
-        foreach (GameObject bullet in bullets)
-        {
-            if (!bullet.activeInHierarchy)
-            {
-                bullet.SetActive(true);
-                bullet.GetComponent<BulletController>().damage = damage;
-                bullet.transform.position = transform.position;
-                //bullet.transform.rotation = transform.rotation;
-                break;
-            }
-        }
-    }
 }
