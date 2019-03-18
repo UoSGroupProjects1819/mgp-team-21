@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 50426847214209540}
   - component: {fileID: 114436671257763066}
   - component: {fileID: 114801448710292682}
+  - component: {fileID: 114228445742264556}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -38,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1263983664229102}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -89,6 +90,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.5}
   m_EdgeRadius: 0
+--- !u!114 &114228445742264556
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1263983664229102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 987f2875523064f47a807b6e32b48af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minRange: 0
+  maxRange: 0
+  damage: 0
+  ShotTimer: 0
+  Ammo: 10
 --- !u!114 &114436671257763066
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -111,6 +128,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57782c9f7b7a1e9438a2bbebae70adc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Health: 10
+  weapon: {fileID: 114228445742264556}
 --- !u!212 &212323242115935586
 SpriteRenderer:
   m_ObjectHideFlags: 1

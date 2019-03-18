@@ -6,21 +6,29 @@ public class BulletController : MonoBehaviour {
     float time = 0f;
     public float bulletSpeed = 1f;
     public int damage;
-    Vector2 direction = new Vector2(0, 0);
-    Quaternion rot = new Quaternion(0, 0, 0, 1);
-
-
     public Vector3 MoveDir;
+    public GameObject shooter;
 
+    private void Start()
+    {
+        shooter = gameObject; //should hopefully stop compiler complaining
+    }
     void OnEnable()
     {
         time = 0f;
-
-        Vector3 mousePosition = Input.mousePosition;
-        mousePosition = Camera.main.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, 10f));
-        mousePosition.z = 0;
-
-        MoveDir =  (mousePosition - this.transform.position).normalized;
+        if (shooter.CompareTag("Player"))
+        {
+            Vector3 mousePosition = Input.mousePosition;
+            mousePosition = Camera.main.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, 10f));
+            mousePosition.z = 0;
+            MoveDir = (mousePosition - this.transform.position).normalized;
+        }
+        else
+        {
+            float ShotX = shooter.GetComponent<Blackboard>().GetFloat("ShotX");
+            float ShotY = shooter.GetComponent<Blackboard>().GetFloat("ShotY");
+            MoveDir = new Vector3(ShotX, ShotY);
+        }
     }
 
     void Update () {
@@ -36,7 +44,7 @@ public class BulletController : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("Bullet Collision:" + collision.gameObject.name);
-        if (!collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.name != shooter.name)
         {
             gameObject.SetActive(false);
         }

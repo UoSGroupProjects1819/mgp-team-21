@@ -21,10 +21,7 @@ public abstract class BaseWeapon : MonoBehaviour {
         for (int i = 0; i < bullets.Length; i++)
         {
             bullets[i] = Instantiate(bullet);
-        }
-        foreach (GameObject b in bullets)
-        {
-            b.SetActive(false);
+            bullets[i].SetActive(false); 
         }
     }
 
@@ -36,6 +33,7 @@ public abstract class BaseWeapon : MonoBehaviour {
             if (!bullet.activeInHierarchy)
             {
                 bullet.transform.position = transform.position;
+                bullet.GetComponent<BulletController>().shooter = gameObject;
                 bullet.SetActive(true);
                 bullet.GetComponent<BulletController>().damage = damage;
                 break;

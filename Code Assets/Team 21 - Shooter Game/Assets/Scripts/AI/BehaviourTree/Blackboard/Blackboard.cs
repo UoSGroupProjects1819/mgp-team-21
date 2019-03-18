@@ -79,6 +79,10 @@ public class Blackboard : MonoBehaviour {
             blackboard.Add(key, new BlackboardInt(val));
         }
     }
+    public bool HasKey(string key)
+    {
+        return blackboard.ContainsKey(key);
+    }
 
     public static float GetGlobalFloat(string key)
     {
@@ -152,5 +156,9 @@ public class Blackboard : MonoBehaviour {
         {
             globalBlackboard.Add(key, new BlackboardInt(val));
         }
+    }
+    public static bool HasGlobalKey(string key)
+    {
+        return globalBlackboard.ContainsKey(key);
     }
 }

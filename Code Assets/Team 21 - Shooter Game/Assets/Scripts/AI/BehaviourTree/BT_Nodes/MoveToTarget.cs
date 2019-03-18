@@ -8,10 +8,11 @@ public class MoveToTarget : Behaviour {
         GameObject target = gameObject.GetComponent<Blackboard>().GetGameObject("target");
         float targetDistance = gameObject.GetComponent<Blackboard>().GetFloat("targetDistance");
         float speed = 5.5f; //Probably be a good idea to create a properties script to add this sort of data to the blackboard at some point. Works here for now though
-        float weaponRange = 10; //arbitrary value until weapons are added
+        float weaponMinRange = gameObject.GetComponent<AIController>().weapon.minRange; 
+        float weaponMaxRange = gameObject.GetComponent<AIController>().weapon.maxRange;
         float x = target.transform.position.x - gameObject.transform.position.x;
         float y = target.transform.position.y - gameObject.transform.position.y;
-        if/*while*/ (targetDistance > weaponRange)
+        if/*while*/ (targetDistance > weaponMinRange)
         {
             //x = target.transform.position.x - gameObject.transform.position.x;
             //y = target.transform.position.y - gameObject.transform.position.y;

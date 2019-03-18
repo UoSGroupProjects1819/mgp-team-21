@@ -30,8 +30,6 @@ public class PlayerShooting : MonoBehaviour {
 	void Update () {
         timeSinceShot += Time.deltaTime;
 
-        ShotTimer = 1;
-
         if ((timeSinceShot >= ShotTimer) && (Ammo > 0))
         {
             weapon.Fire();
