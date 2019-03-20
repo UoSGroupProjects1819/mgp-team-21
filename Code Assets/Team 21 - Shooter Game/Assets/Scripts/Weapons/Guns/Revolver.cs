@@ -13,7 +13,7 @@ public class Revolver : BaseWeapon
         weaponType = "Revolver";
         minRange = 5f;
         maxRange = 10f;
-        ShotTimer = 2.5f;
+        ShotTimer = 1.5f;
         Ammo = 6;
 
         damage = 5;

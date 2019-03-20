@@ -14,8 +14,5 @@ public class Pistol : BaseWeapon {
         Ammo = 7;
 
         damage = 5;
-
-
-
     }
 }
