@@ -12,11 +12,9 @@ public class Rifle : BaseWeapon {
         weaponType = "Rifle";
         minRange = 10f;
         maxRange = 25f;
-        ShotTimer = 10f;
-        Ammo = 15;
+        ShotTimer = 5f;
+        Ammo = 5;
 
         damage = 10;
-
-
     }
 }

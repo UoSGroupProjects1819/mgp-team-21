@@ -12,11 +12,9 @@ public class Shotgun : BaseWeapon
         weaponType = "Shotgun";
         minRange = 5f;
         maxRange = 10f;
-        ShotTimer = 5f;
+        ShotTimer = 2f;
         Ammo = 8;
 
         damage = 10;
-
-
     }
 }
