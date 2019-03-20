@@ -14,8 +14,8 @@ public class MachineGun : BaseWeapon
         weaponType = "Machine Gun";
         minRange = 10f;
         maxRange = 15f;
-        ShotTimer = 0.1f;
-        Ammo = 45;
+        ShotTimer = 0.15f;
+        Ammo = 60;
 
         damage = 4;
 
