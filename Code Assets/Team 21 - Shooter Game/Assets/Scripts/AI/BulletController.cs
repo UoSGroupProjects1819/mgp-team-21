@@ -7,7 +7,7 @@ public class BulletController : MonoBehaviour {
     public float bulletSpeed = 1f;
     public int damage;
     public Vector3 MoveDir;
-    public GameObject shooter;
+    public GameObject shooter = null;
 
     private void Start()
     {

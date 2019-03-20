@@ -12,9 +12,11 @@ public class Sequencer : Composite {
 
     Status Update()
     {
-        currentStatus = children[currentChild].Tick();
-        if (currentStatus != Status.PASS) return currentStatus;
-        if (++currentChild >= children.Count) return Status.PASS;
+        for (int i = 0; i < children.Count; i++)
+        {
+            currentStatus = children[i].Tick();
+            if (currentStatus != Status.PASS) break;
+        }
         return currentStatus;
     }
 }

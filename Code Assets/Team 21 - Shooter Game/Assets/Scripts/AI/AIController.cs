@@ -5,7 +5,6 @@ using UnityEngine;
 public class AIController : MonoBehaviour {
 
     Behaviour BT;
-    public float Health = 10f;
     public BaseWeapon weapon;
 
     void Start () {
@@ -13,7 +12,7 @@ public class AIController : MonoBehaviour {
         weapon.SetupWeapon();
         GameObject go = gameObject;
         BT   = InitTree(go);
-        gameObject.GetComponent<Blackboard>().SetValue("Health", Health);
+        gameObject.GetComponent<Blackboard>().SetValue("Health", 10f);
 	}
 	
 	void FixedUpdate () {
@@ -44,10 +43,11 @@ public class AIController : MonoBehaviour {
     {
         Debug.Log("Enemy Collision:" + collision.gameObject.name);
         if (collision.gameObject.CompareTag("Bullet"))
-
         {
-            Health -= collision.gameObject.GetComponent<BulletController>().damage;
-            gameObject.GetComponent<Blackboard>().SetValue("Health", Health);
+            if (collision.gameObject.GetComponent<BulletController>().shooter != gameObject)
+            {
+                gameObject.GetComponent<Blackboard>().SetValue("Health", gameObject.GetComponent<Blackboard>().GetFloat("Health") - collision.gameObject.GetComponent<BulletController>().damage);
+            }
         }
     }
 }

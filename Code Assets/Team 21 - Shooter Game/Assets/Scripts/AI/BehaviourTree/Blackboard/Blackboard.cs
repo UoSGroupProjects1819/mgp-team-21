@@ -6,6 +6,11 @@ public class Blackboard : MonoBehaviour {
     Dictionary<string, BlackboardBase> blackboard = new Dictionary<string, BlackboardBase>();
     static Dictionary<string, BlackboardBase> globalBlackboard = new Dictionary<string, BlackboardBase>();
     
+    public bool GetBool(string key)
+    {
+        BlackboardBool _bool = (BlackboardBool)blackboard[key];
+        return _bool.GetValue();
+    }
     public float GetFloat(string key)
     {
         BlackboardFloat _float = (BlackboardFloat)blackboard[key];
@@ -20,6 +25,25 @@ public class Blackboard : MonoBehaviour {
     {
         BlackboardInt _int = (BlackboardInt)blackboard[key];
         return _int.GetValue();
+    }
+    public void SetValue(string key, bool val)
+    {
+        if (blackboard.ContainsKey(key))
+        {
+            try
+            {
+                BlackboardBool _bool = (BlackboardBool)blackboard[key];
+                _bool.SetValue(val);
+            }
+            catch
+            {
+                Debug.Log("Key '" + key + "' already exists for incompatible data type");
+            }
+        }
+        else
+        {
+            blackboard.Add(key, new BlackboardBool(val));
+        }
     }
     public void SetValue(string key, float val)
     {
@@ -84,6 +108,11 @@ public class Blackboard : MonoBehaviour {
         return blackboard.ContainsKey(key);
     }
 
+    public static bool GetGlobalBool(string key)
+    {
+        BlackboardBool _bool = (BlackboardBool)globalBlackboard[key];
+        return _bool.GetValue();
+    }
     public static float GetGlobalFloat(string key)
     {
         BlackboardFloat _float = (BlackboardFloat)globalBlackboard[key];
@@ -98,6 +127,25 @@ public class Blackboard : MonoBehaviour {
     {
         BlackboardInt _int = (BlackboardInt)globalBlackboard[key];
         return _int.GetValue();
+    }
+    public static void SetGlobalValue(string key, bool val)
+    {
+        if (globalBlackboard.ContainsKey(key))
+        {
+            try
+            {
+                BlackboardBool _bool = (BlackboardBool)globalBlackboard[key];
+                _bool.SetValue(val);
+            }
+            catch
+            {
+                Debug.Log("Key '" + key + "' already exists for incompatible data type");
+            }
+        }
+        else
+        {
+            globalBlackboard.Add(key, new BlackboardBool(val));
+        }
     }
     public static void SetGlobalValue(string key, float val)
     {

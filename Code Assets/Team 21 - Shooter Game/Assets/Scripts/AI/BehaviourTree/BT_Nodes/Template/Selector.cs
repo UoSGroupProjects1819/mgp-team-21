@@ -12,9 +12,11 @@ public class Selector : Composite {
 
     Status Update()
     {
-        currentStatus = children[currentChild].Tick();
-        if (currentStatus != Status.FAIL) return currentStatus;
-        else if (++currentChild >= children.Count) return Status.FAIL;
+        for (int i = 0; i < children.Count; i++)
+        {
+            currentStatus = children[i].Tick();
+            if (currentStatus != Status.FAIL) break;
+        }
         return currentStatus;
     }
 }

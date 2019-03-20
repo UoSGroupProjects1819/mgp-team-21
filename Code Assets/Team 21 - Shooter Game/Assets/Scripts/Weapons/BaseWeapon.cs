@@ -33,7 +33,9 @@ public abstract class BaseWeapon : MonoBehaviour {
             if (!bullet.activeInHierarchy)
             {
                 bullet.transform.position = transform.position;
+                Debug.Log("GameObject " + gameObject.name);
                 bullet.GetComponent<BulletController>().shooter = gameObject;
+                Debug.Log("Shooter " + bullet.GetComponent<BulletController>().shooter.name);
                 bullet.SetActive(true);
                 bullet.GetComponent<BulletController>().damage = damage;
                 break;
