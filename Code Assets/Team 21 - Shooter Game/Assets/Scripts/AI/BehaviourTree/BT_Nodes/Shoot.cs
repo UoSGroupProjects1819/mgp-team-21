@@ -23,7 +23,6 @@ public class Shoot : Behaviour {
                     gameObject.GetComponent<Blackboard>().SetValue("ShotX", shotDir.x);
                     gameObject.GetComponent<Blackboard>().SetValue("ShotY", shotDir.y);
 
-                    Debug.Log(gameObject.name + " fire " + gameObject.GetComponent<AIController>().weapon.name);
                     gameObject.GetComponent<AIController>().weapon.Fire();
                     gameObject.GetComponent<Blackboard>().SetValue("canShoot", false);
                     gameObject.GetComponent<Blackboard>().SetValue("shotTimer", 0.0f);
@@ -39,7 +38,6 @@ public class Shoot : Behaviour {
             if (gameObject.GetComponent<Blackboard>().GetFloat("shotTimer") >= gameObject.GetComponent<AIController>().weapon.ShotTimer) gameObject.GetComponent<Blackboard>().SetValue("canShoot", true);
             currentStatus = Status.FAIL;
         }
-        Debug.Log(gameObject.name + ".Shoot " + currentStatus);
         return currentStatus;
     }
 }

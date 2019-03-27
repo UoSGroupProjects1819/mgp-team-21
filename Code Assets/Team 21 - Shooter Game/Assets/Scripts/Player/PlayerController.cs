@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
     public float Speed = 5.5f;
+    public float Health = 10f;
 
-       void Start ()
+    void Start ()
     {
-      
+        gameObject.GetComponent<Blackboard>().SetValue("Health", Health); 
 	}
 	
 	// Update is called once per frame

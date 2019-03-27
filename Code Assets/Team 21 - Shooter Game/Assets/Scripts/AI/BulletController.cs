@@ -43,10 +43,13 @@ public class BulletController : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Bullet Collision:" + collision.gameObject.name);
         if (collision.gameObject.name != shooter.name)
         {
             gameObject.SetActive(false);
+        }
+        if (!collision.gameObject.CompareTag(shooter.tag))
+        {
+            collision.gameObject.GetComponent<Blackboard>().SetValue("Health", collision.gameObject.GetComponent<Blackboard>().GetFloat("Health") - damage);
         }
     }
 }

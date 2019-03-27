@@ -37,17 +37,4 @@ public class AIController : MonoBehaviour {
         isAlive.AddChild(engagement);
         return isAlive;
     }
-
-    void OnTriggerEnter2D(Collider2D collision)
-    //void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log("Enemy Collision:" + collision.gameObject.name);
-        if (collision.gameObject.CompareTag("Bullet"))
-        {
-            if (collision.gameObject.GetComponent<BulletController>().shooter != gameObject)
-            {
-                gameObject.GetComponent<Blackboard>().SetValue("Health", gameObject.GetComponent<Blackboard>().GetFloat("Health") - collision.gameObject.GetComponent<BulletController>().damage);
-            }
-        }
-    }
 }
