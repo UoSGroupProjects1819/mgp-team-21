@@ -8,6 +8,15 @@ public class AIController : MonoBehaviour {
     public BaseWeapon weapon;
 
     void Start () {
+        try //first enemy spawned will need to create dictionary entry for EnemyCount so the GetInt will fail, 
+        //figured since this is the only place a failed get value should be acceptable I'd just leave the single try catch here rather than add 8+ try catches to the blackboard
+        {
+            Blackboard.SetGlobalValue("EnemyCount", Blackboard.GetGlobalInt("EnemyCount") + 1);
+        }
+        catch
+        {
+            Blackboard.SetGlobalValue("EnemyCount", 1);
+        }
         weapon = gameObject.AddComponent<Pistol>();
         weapon.SetupWeapon();
         GameObject go = gameObject;
@@ -36,5 +45,13 @@ public class AIController : MonoBehaviour {
 
         isAlive.AddChild(engagement);
         return isAlive;
+    }
+
+    private void OnDisable()
+    {
+        if (Random.Range(0.0f, 1.0f) <= 1.0f/Blackboard.GetGlobalInt("EnemyCount"))
+        {
+
+        }
     }
 }
