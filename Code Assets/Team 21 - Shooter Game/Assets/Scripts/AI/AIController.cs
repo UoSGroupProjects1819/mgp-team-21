@@ -49,9 +49,22 @@ public class AIController : MonoBehaviour {
 
     private void OnDisable()
     {
-        if (Random.Range(0.0f, 1.0f) <= 1.0f/Blackboard.GetGlobalInt("EnemyCount"))
+        if (!Blackboard.HasGlobalKey("Revolver") && !PickupController.dropRevolver)
         {
-
+            if (Random.Range(0.0f, 1.0f) <= 1.0f / Blackboard.GetGlobalInt("EnemyCount"))
+            {
+                foreach (GameObject pickup in PickupController.weapons)
+                {
+                    if (!pickup.activeInHierarchy)
+                    {
+                        PickupController.dropRevolver = true;
+                        pickup.GetComponent<WeaponPickup>().Weapon = WeaponPickup.WeaponType.Revolver;
+                        pickup.transform.position = transform.position;
+                        pickup.SetActive(true);
+                        break;
+                    }
+                }
+            }
         }
     }
 }

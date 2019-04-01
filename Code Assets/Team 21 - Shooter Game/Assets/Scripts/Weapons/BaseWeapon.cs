@@ -21,7 +21,6 @@ public abstract class BaseWeapon : MonoBehaviour {
         for (int i = 0; i < bullets.Length; i++)
         {
             bullets[i] = Instantiate(bullet);
-            bullets[i].GetComponent<BulletController>().shooter = Blackboard.GetGlobalGameObject("Player");
             bullets[i].SetActive(false);
         }
     }
