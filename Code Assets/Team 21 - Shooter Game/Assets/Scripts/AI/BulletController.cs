@@ -9,10 +9,6 @@ public class BulletController : MonoBehaviour {
     public Vector3 MoveDir;
     public GameObject shooter = null;
 
-    private void Start()
-    {
-        shooter = gameObject; //should hopefully stop compiler complaining
-    }
     void OnEnable()
     {
         time = 0f;
@@ -47,9 +43,10 @@ public class BulletController : MonoBehaviour {
         {
             gameObject.SetActive(false);
         }
-        if (!collision.gameObject.CompareTag(shooter.tag))
-        {
-            collision.gameObject.GetComponent<Blackboard>().SetValue("Health", collision.gameObject.GetComponent<Blackboard>().GetFloat("Health") - damage);
-        }
+        if ((collision.gameObject.CompareTag("Player")) || collision.gameObject.CompareTag("Enemy"))
+            if (!collision.gameObject.CompareTag(shooter.tag))
+            {
+                collision.gameObject.GetComponent<Blackboard>().SetValue("Health", collision.gameObject.GetComponent<Blackboard>().GetFloat("Health") - damage);
+            }
     }
 }

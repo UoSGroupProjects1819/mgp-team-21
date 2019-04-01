@@ -8,11 +8,37 @@ public class WeaponSwitching : MonoBehaviour
 
     public static List<BaseWeapon> baseWeapons = new List<BaseWeapon>();
 
-    void Start()
+    void Start() 
     {
-
+        baseWeapons.Clear();
+        Pistol pistol = gameObject.AddComponent<Pistol>();
+        pistol.SetupWeapon();
+        baseWeapons.Add(pistol);
+        if (Blackboard.HasGlobalKey("hasRevolver"))
+        {
+            Revolver revolver = gameObject.AddComponent<Revolver>();
+            revolver.SetupWeapon();
+            baseWeapons.Add(revolver);
+        }
+        if (Blackboard.HasGlobalKey("hasShotgun"))
+        {
+            Shotgun shotgun = gameObject.AddComponent<Shotgun>();
+            shotgun.SetupWeapon();
+            baseWeapons.Add(shotgun);
+        }
+        if (Blackboard.HasGlobalKey("hasBARifle"))
+        {
+            Rifle rifle = gameObject.AddComponent<Rifle>();
+            rifle.SetupWeapon();
+            baseWeapons.Add(rifle);
+        }
+        if (Blackboard.HasGlobalKey("hasMachineGun"))
+        {
+            MachineGun machineGun = gameObject.AddComponent<MachineGun>();
+            machineGun.SetupWeapon();
+            baseWeapons.Add(machineGun);
+        }
     }
-
 
     public BaseWeapon SwapWeapon()
     {
@@ -21,9 +47,6 @@ public class WeaponSwitching : MonoBehaviour
             Pistol pistol = gameObject.AddComponent<Pistol>();
             pistol.SetupWeapon();
             baseWeapons.Add(pistol);
-
-            //For scene changes, might be worth setting a global blackboard boolean and pulling from that each weapon that's been added
-            //e.g. if (Blackboard.GetGlobalBool("hasRevolver")) baseWeapons.Add(revolver);
         }
         int number = Random.Range(0, baseWeapons.Count);
         Debug.Log(number);
@@ -37,24 +60,28 @@ public class WeaponSwitching : MonoBehaviour
             Revolver revolver = gameObject.AddComponent<Revolver>();
             revolver.SetupWeapon();
             baseWeapons.Add(revolver);
+            Blackboard.SetGlobalValue("hasRevolver", true);
         }
         else if (weapon == WeaponPickup.WeaponType.Shotgun)
         {
             Shotgun shotgun = gameObject.AddComponent<Shotgun>();
             shotgun.SetupWeapon();
             baseWeapons.Add(shotgun);
+            Blackboard.SetGlobalValue("hasShotgun", true);
         }
         else if (weapon == WeaponPickup.WeaponType.BoltActionRifle)
         {
             Rifle rifle = gameObject.AddComponent<Rifle>();
             rifle.SetupWeapon();
             baseWeapons.Add(rifle);
+            Blackboard.SetGlobalValue("hasBARifle", true);
         }
         else if (weapon == WeaponPickup.WeaponType.MachineGun)
         {
             MachineGun machineGun = gameObject.AddComponent<MachineGun>();
             machineGun.SetupWeapon();
             baseWeapons.Add(machineGun);
+            Blackboard.SetGlobalValue("hasMachineGun", true);
         }
     }
 }
