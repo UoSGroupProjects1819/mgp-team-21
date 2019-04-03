@@ -38,7 +38,7 @@ public class SwitchScenes : MonoBehaviour
 
     public void GoToHTP()
     {
-        SceneManager.LoadScene("HTP");
+        SceneManager.LoadScene("HowToPlay");
     }
 
     public void QuitGame()
