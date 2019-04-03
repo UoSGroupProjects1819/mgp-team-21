@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class BaseWeapon : MonoBehaviour {
     
-    protected string weaponType;
+    public string weaponType;
     public float minRange;
     public float maxRange;
     public int damage;

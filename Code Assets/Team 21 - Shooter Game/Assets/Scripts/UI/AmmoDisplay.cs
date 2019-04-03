@@ -1,25 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class AmmoDisplay : MonoBehaviour {
 
-    private int ShowAmmo;
+    public TextMeshProUGUI ammo;
+    public GameObject Player;
 
 
-	// Use this for initialization
-	void Start ()
-    {
-        
+
+    // Use this for initialization
+    void Start()
+    { 
+        Player = Blackboard.GetGlobalGameObject("Player");
+
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
-	}
-
-    private void OnGUI()
+	void Update ()
     {
-        GUI.Label(new Rect(-100, 30, 200, 50), "Ammo: ");
-    }
+        ammo.text = Player.GetComponent<PlayerShooting>().weapon.weaponType.ToString() + " ";
+        ammo.text += Player.GetComponent<PlayerShooting>().Ammo.ToString();
+
+	}
 }

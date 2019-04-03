@@ -8,7 +8,7 @@ public class PlayerShooting : MonoBehaviour {
     public float ShotTimer = 5f;
     public GameObject bullet;
     public int Ammo = 10;
-    BaseWeapon weapon;
+    public BaseWeapon weapon;
 
     void Start() {
         weapon = GetComponent<WeaponSwitching>().SwapWeapon();
