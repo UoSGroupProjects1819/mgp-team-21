@@ -36,7 +36,7 @@ public class SwitchMenus : MonoBehaviour
         }
     }
 
-    void ToggleMainMenu()
+    public void ToggleMainMenu()
     {
         SettingsMenuUI.SetActive(false);
         Time.timeScale = 1f;
@@ -45,7 +45,7 @@ public class SwitchMenus : MonoBehaviour
 
         MainMenuUI.SetActive(true);
     }
-    void ToggleSettings()
+    public void ToggleSettings()
     {
         MainMenuUI.SetActive(false);
         Time.timeScale = 1f;
